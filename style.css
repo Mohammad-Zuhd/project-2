@@ -1,0 +1,212 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Intel:wght@100;200;300;400;500;600;700&display=swap');
+
+/* Body background and font */
+body {
+  background: #f5f7fa; /* Light background */
+  font-family: 'Intel', sans-serif; /* Modern, clean font */
+  margin: 0;
+  padding: 0;
+  color: #2c3e50;
+}
+
+/* Header styles */
+header {
+  background: #0068B5;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+}
+
+header img {
+  width: 120px;
+  margin-bottom: 40px;
+  filter: brightness(0) invert(1);
+}
+
+header h1 {
+  font-family: 'Intel', sans-serif;
+  font-size: 2.8em;
+  font-weight: 600;
+  margin: 0 0 30px 0;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+header h1::after {
+  content: "";
+  display: block;
+  margin: 25px auto 0;
+  width: 60px;
+  height: 3px;
+  background: #00aee6;
+  border-radius: 2px;
+}
+
+header p {
+  font-size: 1.2em;
+  max-width: 800px;
+  margin: 20px auto 0;
+  color: rgba(255,255,255,0.95);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* Timeline section styles */
+section {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 32px;
+  padding: 40px 24px;
+  background: #fff;
+  margin: 0 auto;
+  max-width: 1300px;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  scrollbar-width: thin;
+  scrollbar-color: #0071c5 #e3eaf2;
+}
+
+section::-webkit-scrollbar {
+  height: 8px;
+}
+
+section::-webkit-scrollbar-track {
+  background: #e3eaf2;
+  border-radius: 4px;
+}
+
+section::-webkit-scrollbar-thumb {
+  background: #0071c5;
+  border-radius: 4px;
+}
+
+/* Timeline card styles */
+section > div {
+  min-width: 280px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  padding: 24px 20px;
+  scroll-snap-align: start;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(227,234,242,0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Card hover effect */
+section > div:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0,113,197,0.15);
+  background: linear-gradient(to bottom right, #ffffff, #f8fbff);
+  z-index: 2;
+}
+
+/* Card headings */
+section > div h2 {
+  font-family: 'Poppins', sans-serif;
+  color: #0071c5;
+  font-size: 1.5em;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+section > div h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2em;
+  margin: 0 0 16px 0;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+/* Card images */
+section > div img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: block;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  object-fit: cover;
+  height: 200px;
+}
+
+/* Card details overlay */
+.card-details {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0,113,197,0.95), rgba(0,113,197,0.85));
+  color: #fff;
+  padding: 20px 16px;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  max-height: 100%;
+  font-size: 1.05em;
+  line-height: 1.6;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+
+/* Show the overlay when hovering the card */
+section > div:hover .card-details {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Optional: Make the image slightly zoom in on hover for effect */
+section > div:hover img {
+  transform: scale(1.12);
+}
+
+/* Timeline instructions */
+body > p {
+  text-align: center;
+  color: #2c3e50;
+  margin: 32px 0 40px 0;
+  font-size: 1.1em;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* Responsive: stack cards vertically on small screens */
+@media (max-width: 700px) {
+  section {
+    flex-direction: column;
+    overflow-x: visible;
+    gap: 32px;
+    border-radius: 0;
+    padding: 24px 16px;
+  }
+  
+  section > div {
+    min-width: unset;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  header {
+    padding: 32px 0 24px 0;
+  }
+  
+  header h1 {
+    font-size: 2.2em;
+    padding: 0 20px;
+  }
+  
+  header p {
+    font-size: 1.1em;
+    padding: 0 24px;
+  }
+
+  section > div:hover {
+    transform: scale(1.02) translateY(-3px);
+  }
+} 
